@@ -1,0 +1,92 @@
+a {
+  text-decoration: none;
+}
+
+h6 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+  font-weight: 900;
+  font-size: 1.35rem;
+  line-height: 0%;
+}
+
+h3 {
+  color: #4A55A2;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+p{
+  font-family: 'Lumanosimo', cursive;
+  font-weight: 600;
+}
+
+/* Navigation BAR */
+.top-nav {
+  background-color: #4A55A2;
+}
+
+.top-nav a {
+  color: #ffffff;
+  font-weight: 900;
+}
+
+
+/* Custom Styles */
+.hero-section {
+  padding: 100px 0;
+  background-color: #f8f9fa;
+}
+
+.hero-title {
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.hero-description {
+  font-size: 24px;
+  margin-bottom: 40px;
+  color: #666;
+}
+
+.featured-section {
+  padding: 100px 0;
+  background-color: #fff;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 60px;
+  color: #333;
+}
+
+.footer-section {
+  padding: 40px 0;
+  background-color: #333;
+  color: #fff;
+}
+
+.footer-section p {
+  margin-bottom: 0;
+}
+
+/* Custom Media Queries */
+@media (max-width: 767px) {
+  .hero-section {
+    padding: 50px 0;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .hero-description {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+}

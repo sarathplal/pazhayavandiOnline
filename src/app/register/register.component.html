@@ -1,0 +1,89 @@
+<div class="form_wrapper">
+    <div class="form_container">
+        <div class="title_container">
+            <h3>Pazhayavandi_Online</h3>
+            <h4>Register Here</h4>
+        </div>
+        <div class="row clearfix">
+            <div class="">
+                <form [formGroup]="registerForm" (ngSubmit)="register()">
+                    <!-- Email -->
+                    <div class="input_field mt-1"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                        <input formControlName="email" class="form-control" type="email" name="email"
+                            placeholder="Email" required />
+                    </div>
+                    <!-- Email Validation -->
+                    <div *ngIf="this.registerForm.get('email')?.errors&&this.registerForm.get('email')?.touched"
+                        class="text-danger">
+                        Pleaser enter a valid emailId
+                    </div>
+                    <!-- password -->
+                    <div class="input_field mt-1"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                        <input class="form-control" type="password" name="password" formControlName="passWord"
+                            placeholder="Password" required />
+                    </div>
+                    <!-- password Validation -->
+                    <div *ngIf="this.registerForm.get('passWord')?.errors&&this.registerForm.get('passWord')?.touched"
+                        class="text-danger">
+                        Pleaser enter a valid password
+                    </div>
+                    <!-- <div class="input_field mt-1"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                        <input class="form-control" type="password" name="password" placeholder="Re-type Password"
+                            required />
+                    </div> -->
+                    <!-- Name section -->
+                    <div class="row clearfix">
+                        <div class="col_half">
+                            <!-- first Name -->
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                                <input class="form-control" type="text" name="fname" formControlName="firstName"
+                                    placeholder="First Name" />
+                            </div>
+                            <!-- firstName Validation -->
+                            <div *ngIf="this.registerForm.get('firstName')?.errors&&this.registerForm.get('firstName')?.touched"
+                                class="text-danger">
+                                Pleaser enter a firstName
+                            </div>
+                        </div>
+                        <div class="col_half">
+                            <!-- Last Name -->
+                            <div class="input_field"> <span></span>
+                                <i aria-hidden="true" class="fa fa-user"></i><input class="form-control" type="text"
+                                    name="name" formControlName="lastName" placeholder="Last Name" required />
+                            </div>
+                            <!-- lastNAme Validation -->
+                            <div *ngIf="this.registerForm.get('lastName')?.errors&&this.registerForm.get('lastName')?.touched"
+                                class="text-danger">
+                                Pleaser enter a valid lastName
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="input_field radio_option mt-1 mb-1">
+                        <input type="radio" name="radiogroup1" id="rd1">
+                        <label for="rd1">Male</label>
+                        <input type="radio" name="radiogroup1" id="rd2">
+                        <label for="rd2">Female</label>
+                    </div> -->
+                    <!-- <div class="input_field select_option">
+                        <select class="form-control">
+                            <option>Select a District</option>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                        </select>
+                        <div class="select_arrow"></div>
+                    </div> -->
+                    <!-- <div class="input_field checkbox_option mt-2">
+                        <input type="checkbox" id="cb1">
+                        <label for="cb1">I agree with terms and conditions</label>
+                    </div> -->
+                    <div class="d-flex mt-5">
+                        <button class="Button mt-2 me-2 btn btn-outline-warning" type="submit"
+                            value="Register">Resgister</button>
+                        <a routerLink="/login" class="Button mt-2 btn btn-outline-primary">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <p class="credit">Developed by <a href="http://www.designtheway.com" target="_blank">Design the way</a></p> -->

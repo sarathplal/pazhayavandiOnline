@@ -1,0 +1,17 @@
+.row{
+    background-color: #4A55A2;
+    height: 100vh;
+}
+.sell_form{
+    margin-top: 100px;
+    border: 13px ;
+    border-radius: 15px;
+    box-shadow: 5px 5px 6px 2 #aaa;
+    background: #fff(174, 173, 207, 0.014);
+}
+.sell_form h5{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #FFFFFF;
+    font-weight: 900;
+    text-shadow: 0.3px 0.3px 3px;
+}

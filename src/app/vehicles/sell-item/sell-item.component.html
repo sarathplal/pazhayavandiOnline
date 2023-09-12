@@ -1,0 +1,150 @@
+<!-- Selling Vehicle Details -->
+
+<!-- Modal -->
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <div class="mt-5">
+            <form  class="border sell_form p-5" [formGroup]="tosellForm">
+                <h5 class="mb-2">Enter your vehicle details</h5>
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="d-flex ">
+                        <div class="d-flex flex-column w-50">
+                            <select [(ngModel)]="selectedOption"  name="category" formControlName="category"
+                                id="vehicle-type" class="form-control   me-2">
+                                <option value="" selected disabled>CATEGORY</option>
+                                <option value="CAR">CAR</option>
+                                <option value="MOTORCYCLE">MOTORCYCLE</option>
+                                <option value="SCOOTER">SCOOTER</option>
+                                <option value="COMMERCIAL & OTHER VEHICLES">COMMERCIAL & OTHER VEHICLES</option>
+                            </select>
+                            <div *ngIf="this.tosellForm.get('category')?.errors&&this.tosellForm.get('category')?.touched"
+                                class="text-danger">
+                                Pleaser enter a valid CATEGORY
+                            </div>
+                        </div>
+                        <!-- CAR BRANDS -->
+                        <select required *ngIf="selectedOption === 'CAR'" name="car_brands" formControlName="car_brands"
+                            class="form-control ms-2 w-50" id="car-brands">
+                            <option value="" selected disabled>CHOOSE BRAND</option>
+                            <option value="Audi">Audi</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="Maruti Suzuki">Maruti Suzuki</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Tata Motors">Tata Motors</option>
+                            <option value="Mahindra">Mahindra</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Kia">Kia</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="Renault">Renault</option>
+                        </select>
+
+                        <!-- BIKE BRANDS -->
+
+                        <select required *ngIf="selectedOption === 'MOTORCYCLE'" name="bike_brands" formControlName="bike_brands"
+                            class="form-control w-50 " id="bike-brands">
+                            <option value="" selected disabled>CHOOSE BRAND</option>
+                            <option value="Hero">Hero</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Bajaj">Bajaj</option>
+                            <option value="TVS">TVS</option>
+                            <option value="Yamaha">Yamaha</option>
+                            <option value="Royal Enfield">Royal Enfield</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="KTM">KTM</option>
+                            <option value="Mahindra">Mahindra</option>
+                            <option value="Harley-Davidson">Harley-Davidson</option>
+                            <option value="Ducati">Ducati</option>
+                        </select>
+
+                        <!-- SCOOTER BRANDS -->
+                        <select required *ngIf="selectedOption === 'SCOOTER'" name="scooter_brands"
+                            formControlName="scooter_brands" class="form-control w-50" id="scooter-brands">
+                            <option value="" selected disabled>CHOOSE BRAND</option>
+                            <option value="Honda">Honda</option>
+                            <option value="TVS">TVS</option>
+                            <option value="Hero">Hero</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Yamaha">Yamaha</option>
+                            <option value="Aprilia">Aprilia</option>
+                            <option value="Vespa">Vespa</option>
+                            <option value="Mahindra">Mahindra</option>
+                            <option value="Bajaj">Bajaj</option>
+                            <option value="Piaggio">Piaggio</option>
+                        </select>
+
+                        <!-- COMMERCIAL AND OTHER VEHICLE SECTION -->
+                        <select required *ngIf="selectedOption === 'COMMERCIAL & OTHER VEHICLES'" name="commercial_brands"
+                            formControlName="commercial-brands" class="form-control w-50" id="commercial-brands">
+                            <option value="" selected disabled>CHOOSE BRAND</option>
+                            <option value="Tata Motors">Tata Motors</option>
+                            <option value="Ashok Leyland">Ashok Leyland</option>
+                            <option value="Mahindra">Mahindra</option>
+                            <option value="Eicher">Eicher</option>
+                            <option value="Force Motors">Force Motors</option>
+                            <option value="Swaraj Mazda">Swaraj Mazda</option>
+                            <option value="Piaggio">Piaggio</option>
+                            <option value="BharatBenz">BharatBenz</option>
+                            <option value="Scania">Scania</option>
+                            <option value="Volvo">Volvo</option>
+                        </select>
+                    </div>
+
+
+
+                </div>
+                <div class="d-flex ">
+                    <div class="d-flex flex-column me-1">
+                        <input name="model" formControlName="model" placeholder="MODEL" class="form-control w-100 m-1"
+                            type="text">
+                        <div *ngIf="this.tosellForm.get('model')?.errors&&this.tosellForm.get('model')?.touched"
+                            class="text-danger">
+                            Pleaser enter a valid MODEL
+                        </div>
+
+                    </div>
+                    <div class="d-flex flex-column">
+                        <input name="year" formControlName="year" placeholder="YEAR" class="form-control m-1 w-100"
+                            type="text">
+                        <div *ngIf="this.tosellForm.get('year')?.errors&&this.tosellForm.get('year')?.touched"
+                            class="text-danger">
+                            Pleaser enter a valid YEAR
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="d-flex flex-column me-1">
+                        <input name="km_driven" formControlName="km_driven" placeholder="KM's Driven"
+                            class="form-control w-100 m-1" type="text">
+                        <div *ngIf="this.tosellForm.get('km_driven')?.errors&&this.tosellForm.get('km_driven')?.touched"
+                            class="text-danger">
+                            Pleaser KM's Driven
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column ">
+                        <input name="price" formControlName="price" placeholder="Enter Asking Price"
+                            class="form-control m-1 w-100" type="text">
+                        <div *ngIf="this.tosellForm.get('price')?.errors&&this.tosellForm.get('price')?.touched"
+                            class="text-danger">
+                            Pleaser enter a valid PRICE
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <input name="vehicle_image" formControlName="vehicle_image" placeholder="Link to Image"
+                        class="form-control w-50 m-1" type="text">
+                    <div *ngIf="this.tosellForm.get('vehicle_image')?.errors&&this.tosellForm.get('vehicle_image')?.touched"
+                        class="text-danger">
+                        Hey,We just made it mandatory,
+                        please add  one photo of your vehicle
+                    </div>
+                </div>
+
+                <button type="button" (click)="sellVehicle()" class="btn mt-3 btn-primary">POST</button>
+
+            </form>
+        </div>
+    </div>
+    <div class="col-3"></div>
+</div>

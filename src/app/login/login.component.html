@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <form [formGroup]="loginForm">
+        <div class="panel-lite">
+            <div class="thumbur">
+                <div class="icon-lock"></div>
+            </div>
+            <h4>Login</h4>
+            <div class="form-group">
+                <input name="email" formControlName="email" class="form-control" type="text" />
+                <label class="form-label">Email</label>
+            </div>
+            <div class="form-group">
+                <input formControlName="passWord" class="form-control mb-3"  type="text">
+                <label class="form-label">Password</label>
+            </div><a routerLink="/register">New user? Register</a>
+            <button (click)="login()" type="submit" class="floating-btn"><i class="icon-arrow"></i></button>
+        </div>
+    </form>
+</div>

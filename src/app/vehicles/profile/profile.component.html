@@ -1,0 +1,112 @@
+<!-- Navbar -->
+<nav class="navbar top-nav navbar-expand-lg ">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="">Pazhayavandi_Online</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
+                <!-- <form class=" d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                </form> -->
+
+                <!-- Sell Button -->
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/login">Logout</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- Section -->
+<div class="ms-3   row mt-5">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div class="row">
+            <h3 class="fw-bolder text-success">Listed Items</h3>
+            <div class="col text-success text-center d-flex  align-items-center  border">
+                <!-- <h2 class="fw-bolder">Listed Items</h2> -->
+                <div *ngFor="let vehicle of listedItems" class="sellList p-2">
+                    <div class="card mt-2 me-2" style="width: 18rem;">
+                        <img [src]="vehicle.image" style="height: 150px;" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{vehicle.model}}</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">PRICE:{{vehicle.price}}</li>
+                            <li class="list-group-item">YEAR:{{vehicle.year}}</li>
+                            <li class="list-group-item">KM:{{vehicle.km_driven}}</li>
+                        </ul>
+                        <div class="card-body">
+                            <button type="button" (click)="removeFromListedItems(vehicle._id)"
+                                class="btn  btn-danger">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="listedItems.length==0">
+                    <img src="https://assets.materialup.com/uploads/16e7d0ed-140b-4f86-9b7e-d9d1c04edb2b/preview.png"
+                        style="height: 400px;width: 80%;" alt="">
+                </div>
+            </div>
+            <h3 class="fw-bolder text-danger mt-5">WishList Items</h3>
+            <div class=" mt-5 text-danger d-flex  align-items-center  col text-center border">
+                <div *ngFor="let vehicle of wishListItems" class="wishList">
+                    <div class="card mt-2 me-3 " style="width: 18rem;">
+                        <img [src]="vehicle.image" style="height: 100px;" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{vehicle.model}}</h5>
+                            <p class="card-text"> title and make up the bulk
+                                of
+                                the card's content.</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">PRICE : ₹{{vehicle.price}}</li>
+                            <li class="list-group-item">YEAR: {{vehicle.year}}</li>
+                            <li class="list-group-item">KM :{{vehicle.km_driven}}</li>
+                        </ul>
+                        <div class="card-body  ">
+                            <button (click)="findSellerDetails(vehicle._id)"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success me-2">Contact</button>
+                            <button type="button" (click)="removeFromWishList(vehicle._id)"
+                                class="btn btn-danger">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="wishListItems.length==0">
+                    <img style="height: 400px;width: 80%;"
+                        src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-5521508-4610092.png"
+                        alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<!-- ConTact Details Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Seller Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h5><span class="text-danger">Name</span>:__{{sellerDetails.firstName}}.{{sellerDetails.lastName}}</h5>
+        <h6><span class="text-danger">Email</span>:{{sellerDetails.email}}</h6>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

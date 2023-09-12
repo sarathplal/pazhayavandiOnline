@@ -1,0 +1,93 @@
+a {
+    text-decoration: none;
+}
+
+/* Navigation BAR */
+.top-nav {
+    background-color: #4A55A2;
+}
+
+.top-nav a {
+    color: #ffffff;
+    font-weight: 900;
+}
+
+.selection-tag {
+    box-shadow: 2px 3px 3px;
+    background-color: #eeeeee;
+    border-radius: 5px;
+}
+
+.model {
+    margin-top: 0;
+    line-height: normal;
+}
+
+/* Sell Button */
+
+.sell-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255,0.3);
+    color: #333333;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 4px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sell-button:hover {
+    background-color: #f2f2f2;
+}
+
+.sell-button:focus {
+    outline: none;
+}
+
+.sell-button:active {
+    background-color: #000000;
+}
+
+.sell-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    /* background-image: url("sell-icon.png"); */
+    /* Replace with your own icon */
+    background-size: cover;
+    margin-right: 8px;
+}
+
+/* Vehicles section */
+
+
+h5 {
+    font-family: 'Titillium Web', sans-serif;
+    color: black;
+    font-weight: 900;
+    font-size: 1.35rem;
+    line-height: 0%;
+}
+h6{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #4A55A2;
+}
+h4{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+p{
+    font-family: 'Roboto', sans-serif;
+    color:darkblue;
+ 
+}
+.card{
+    box-shadow: 3px 3px 5px;
+}

@@ -1,0 +1,103 @@
+<!-- Navbar -->
+<nav class="navbar top-nav navbar-expand-lg ">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="">Pazhayavandi_Online</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
+                <!-- <form class=" d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                </form> -->
+
+                <!-- Sell Button -->
+                <a routerLink="sell-items" class="sell-button">
+                    <span class="sell-icon"></span>
+                    Sell
+                </a>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="profile"><i
+                            class="fa-solid fa-user me-1"></i>Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/login">Logout <i
+                            class="fa-solid fa-right-from-bracket me-1"></i></a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<!-- Second navigation Bar -->
+
+<div class="container-fluid border p-1 d-flex justify-content-around text-align-left  mt-5 ">
+    <h4 class="border fw-bold text-primary">All VEHICLES</h4>
+    <div class="d-flex">
+        <h4 class="ms-5 me-2 fw-bold text-success">SEARCH</h4> <input [(ngModel)]="searchedVehicle"
+            style="width: 250px;" class="form-control" type="text">
+    </div>
+</div>
+
+<!-- loading spinner -->
+<div class="text-center mt-5" *ngIf="isLoading && allVehicles.length==0">
+
+    <div class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+
+</div>
+
+<!-- Section-->
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-2">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div *ngFor="let vehicle of allVehicles |filter:searchedVehicle:'model'" class="col mb-5">
+
+                <div class="card h-100 p-2">
+                    <a routerLink="">
+                        <!-- Product image-->
+                        <img style=" height: 150px;" [src]="vehicle.image" class="card-img-top " alt="___" />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-align-left">
+
+                                <!-- Vehicle price-->
+                                <h5 class="mb-3">{{vehicle.price}}</h5>
+                                <!-- vehicle model-->
+                                <h6 class="mt-1 mb-2">{{vehicle.model}}</h6>
+                                <div class="model d-flex">
+                                    <p>{{vehicle.year}}--</p>
+                                    <p>{{vehicle.km_driven}}KM's</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex  justify-content-center">
+                        <!-- wish list vehicle -->
+                        <button (click)="wishListvehicle(vehicle._id)" class="btn ">
+                            <i class="fa-solid fa-heart fa " style="color: #ed0c45;"></i>
+                        </button>
+                        <!-- View Vehicle -->
+                        <!-- <a routerLink="vehicles/view-vehicle" class="btn"> <i class="fa-solid fa-eye fa-fade"></i></a> -->
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div *ngIf="(allVehicles |filter:searchedVehicle:'model').length==0">
+
+            <img src="https://cdni.iconscout.com/illustration/premium/thumb/search-result-not-found-2130355-1800920.png?f=webp"
+                alt="">
+            <!-- <h3>Sorry No results found</h3> -->
+        </div>
+    </div>
+
+</section>
